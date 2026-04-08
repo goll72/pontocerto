@@ -1,0 +1,6 @@
+- name: TLS certificate renewal setup using uacme
+  hosts: system
+  roles:
+    - role: uacme
+      domain_name: "{{ domain_name }}"
+      contact_email: "{{ uacme_contact_email }}"

@@ -1,0 +1,6 @@
+---
+roles:
+  - name: nginxinc.nginx_config
+  - name: zorun.nsd
+
+collections: []

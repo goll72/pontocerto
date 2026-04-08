@@ -1,0 +1,8 @@
+- name: Relational database setup using PostgreSQL
+  hosts: system
+  tasks:
+    - name: Install PostgreSQL
+      become: true
+      ansible.builtin.package:
+        name: postgresql
+        state: present

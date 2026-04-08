@@ -1,0 +1,21 @@
+; Managed by Ansible. Do not edit.
+$ORIGIN {{ domain_name }}.
+$TTL 86400
+
+{{ domain_name }}.    IN    SOA    ns.{{ domain_name }}. hostmaster.{{ domain_name }}. (
+	2026040000    ; serial
+	10800         ; refresh (3h)
+	3600          ; retry (1h)
+	604800        ; expire (1w)
+	3600          ; negative ttl (1h)
+)
+
+                            NS     ns.{{ domain_name }}.
+
+{{ domain_name }}.          A      {{ ipv4_addr }}
+                            AAAA   {{ ipv6_addr }}
+
+www                         CNAME  {{ domain_name }}.
+
+ns                          A      {{ ipv4_addr }}
+                            AAAA   {{ ipv6_addr }}

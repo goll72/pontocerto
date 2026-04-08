@@ -1,0 +1,10 @@
+- name: DNS server setup using NSD
+  hosts: system
+  become: true
+  roles:
+    - zorun.nsd
+  vars:
+    nsd_primary_zones:
+      - zone_name: "{{ domain_name }}"
+        zone_filename: zonefile
+    nsd_local_zones_dir: ../files/nsd
