@@ -2,5 +2,12 @@
   hosts: system
   roles:
     - role: uacme
-      domain_name: "{{ domain_name }}"
       contact_email: "{{ uacme_contact_email }}"
+      run_on_renew:
+        - nginx -s reload
+  tasks:
+    - name: Reload nginx to ensure it is not using dummy TLS certificates
+      become: true
+      ansible.builtin.systemd_service:
+        name: nginx
+        state: reloaded

@@ -6,6 +6,18 @@
       ansible.builtin.package:
         name: nginx
         state: present
+    - name: Ensure sites-available does not exist
+      ansible.builtin.file:
+        path: /etc/nginx/sites-available
+        state: absent
+    - name: Ensure sites-enabled does not exist
+      ansible.builtin.file:
+        path: /etc/nginx/sites-enabled
+        state: absent
+    - name: Ensure /var/www/html does not exist
+      ansible.builtin.file:
+        path: /var/www/html
+        state: absent
     - name: Check if a TLS certificate has been issued already
       ansible.builtin.stat:
         path: "{{ uacme_conf_dir }}/{{ domain_name }}/cert.pem"
@@ -49,3 +61,8 @@
                     - location: /
                       core:
                         root: /srv/www
+    - name: Reload nginx to ensure it is has been configured properly for TLS
+      ansible.builtin.systemd_service:
+        name: nginx
+        state: reloaded
+        enabled: true
