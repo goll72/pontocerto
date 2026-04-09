@@ -1,0 +1,2 @@
+uacme_dir: /etc/ssl/uacme
+run_on_renew: []

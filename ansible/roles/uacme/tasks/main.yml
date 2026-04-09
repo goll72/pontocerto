@@ -1,0 +1,58 @@
+- name: Install the uacme package
+  become: true
+  ansible.builtin.package:
+    name: uacme
+    state: present
+- name: Create an ACME account
+  become: true
+  ansible.builtin.command:
+    cmd: uacme -c {{ uacme_dir }} new {{ contact_email }}
+    creates: "{{ uacme_dir }}/private"
+- name: Create directory for the HTTP-01 ACME challenge
+  become: true
+  ansible.builtin.file:
+    path: /var/www/.well-known/acme-challenge
+    state: directory
+- name: Check if dummy TLS certificate has been issued
+  ansible.builtin.stat:
+    path: "{{ uacme_dir }}/dummy.marker"
+  register: dummy_marker
+- name: Remove dummy TLS certificate
+  become: true
+  ansible.builtin.command:
+    cmd: |
+      rm -f {{ uacme_dir }}/private/{{ domain_name }}/key.pem \
+            {{ uacme_dir }}/{{ domain_name }}/cert.pem \
+            {{ uacme_dir }}/dummy.marker
+  when: dummy_marker.stat.exists
+  changed_when: dummy_marker.stat.exists
+- name: Issue a TLS certificate
+  become: true
+  ansible.builtin.shell:
+    cmd: |
+      uacme -v -c {{ uacme_dir }} -h /usr/share/uacme/uacme.sh issue {{ domain_name }}  &&  rm -f {{ uacme_dir }}/dummy.marker
+  register: cmd
+  failed_when: "cmd.rc != 0 and 'uacme: skipping ' not in cmd.stderr"
+  changed_when: dummy_marker.stat.exists
+- name: Create a systemd service for uacme
+  become: true
+  ansible.builtin.template:
+    src: uacme.service.j2
+    dest: /etc/systemd/system/uacme.service
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
+- name: Create a systemd timer for uacme
+  become: true
+  ansible.builtin.template:
+    src: uacme.timer.j2
+    dest: /etc/systemd/system/uacme.timer
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
+- name: Enable the uacme systemd unit
+  become: true
+  ansible.builtin.systemd_service:
+    name: uacme.timer
+    state: started
+    enabled: true

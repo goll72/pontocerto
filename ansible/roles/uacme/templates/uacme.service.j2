@@ -1,0 +1,14 @@
+# Managed by Ansible. Do not edit.
+[Unit]
+Description=Renew TLS certificate(s) using uacme
+
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+Unit=uacme.target
+ExecStart=uacme -c {{ uacme_dir }} -h /usr/share/uacme/uacme.sh issue {{ domain_name }}
+{% for execline in run_on_renew %}
+ExecStart={{ execline }}
+{% endfor %}
