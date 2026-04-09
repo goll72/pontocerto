@@ -11,9 +11,7 @@ export default {
     },
     build: {
         target: "esnext",
-    },
-    root: "src",
-    build: {
         outDir: "../dist",
     },
+    root: "src",
 } satisfies UserConfig;
