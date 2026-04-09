@@ -4,10 +4,10 @@
     "version": "0.1.0",
     "type": "module",
     "scripts": {
-        "start": "vite",
-        "dev": "vite",
-        "build": "vite build",
-        "serve": "vite preview"
+        "start": "npx vite",
+        "dev": "npx vite",
+        "build": "npx vite build",
+        "serve": "npx vite preview"
     },
     "devDependencies": {
         "@biomejs/biome": "2.4.10",
