@@ -22,7 +22,7 @@ uv sync --locked
 . ./.venv/bin/activate
 ansible-galaxy install -r ansible/requirements.yml
 
-npm install --package-lock-only
+npm ci
 ```
 
 ## Compilação e _deploy_
