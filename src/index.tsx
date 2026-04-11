@@ -1,7 +1,7 @@
 import { render } from "solid-js/web";
 import "solid-devtools";
 
-import HelloWorld from "./components/HelloWord";
+import Sidebar from "./components/Sidebar";
 
 const root = document.getElementById("root");
 
@@ -11,4 +11,4 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
     );
 }
 
-render(() => <HelloWorld />, root!);
+render(() => <Sidebar />, root!);
