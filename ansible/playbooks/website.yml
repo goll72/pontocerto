@@ -1,0 +1,17 @@
+- name: Deploy the website (assets and code)
+  hosts: system
+  tasks:
+    - name: Install rsync
+      become: true
+      ansible.builtin.package:
+        name: rsync
+        state: present
+    - name: Copy static website files to /srv/www
+      become: true
+      become_user: www-data
+      ansible.posix.synchronize:
+        src: ../../dist/
+        dest: /srv/www/
+        archive: true
+        owner: false
+        group: false
