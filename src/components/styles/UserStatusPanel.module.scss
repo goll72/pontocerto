@@ -1,0 +1,46 @@
+$pfp-width: 12rem;
+
+$icon-offset-y: $pfp-width - 3.5rem;
+$icon-offset-x: $pfp-width - 2.5rem;
+
+.pfp-container {
+  width: $pfp-width;
+  margin: auto;
+
+  position: relative;
+}
+
+.pfp {
+  width: $pfp-width;
+}
+
+/*
+ * Não podemos usar esse elemento para clicar pois o
+ * ícone em si está deslocado em relação à posição do elemento.
+ */
+.pfp-plus-icon {
+  top: $icon-offset-y;
+  left: $icon-offset-x;
+
+  font-size: 32px;
+
+  width: 0;
+  color: #eee;
+
+  pointer-events: none;
+}
+
+.pfp-plus-icon-background {
+  top: $icon-offset-y + 0.75rem;
+  left: $icon-offset-x + 0.25rem;
+
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+
+  background-color: #000;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
