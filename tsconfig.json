@@ -12,9 +12,12 @@
     "noEmit": true,
 
     "strict": true,
-    "types": ["vite/client"]
-  },
-  "paths": {
-      "#solid-devtools/*": "./node_modules/solid-devtools/packages/main/src/*.js"
+    "types": ["vite/client"],
+
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ]
   }
 }
