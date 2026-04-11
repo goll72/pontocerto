@@ -3,15 +3,26 @@ import style from "./styles/Sidebar.module.scss";
 
 const Sidebar: Component = () => {
     return (
-        <div
-            class="d-flex flex-md-column flex-row p-3 bg-primary text-white align-items-center"
-            style={"" /*"width: 250px; height: 100vh"*/}
-        >
+        <div class="d-flex flex-md-column flex-row p-3 bg-primary text-white align-items-center h-100">
             <h1 class="mb-1 fw-bold font-monospace">
                 PONTO
                 <br />
                 CERTO
             </h1>
+
+            <div>
+                {(() => {
+                    let href: string;
+
+                    if (window.location.pathname.startsWith("/orders")) {
+                        href = "#";
+                    } else {
+                        href = "/orders";
+                    }
+
+                    return <a href={href}>abcdef</a>;
+                })()}
+            </div>
 
             <ul class="nav nav-pills flex-md-column flex-row gap-2">
                 <li class="nav-item">
@@ -63,10 +74,7 @@ const Sidebar: Component = () => {
                 </li>
             </ul>
 
-            <footer
-                class="fixed-bottom text-center bg-black"
-                style="width: 250px"
-            >
+            <footer class="text-center bg-black mt-auto" style="width: 250px">
                 <a
                     class="nav-link active text-white gap-1"
                     aria-current="page"

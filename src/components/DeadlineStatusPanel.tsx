@@ -17,7 +17,7 @@ const WithDate: ParentComponent<{ date: Date }> = (props) => {
 
 const DeadlineStatusPanel: Component = () => {
     return (
-        <Card class="w-75">
+        <Card class="w-75 mx-auto">
             <Card.Header class="d-flex flex-row justify-content-between">
                 <span class="fw-bold">Deadlines</span>
                 {/* XXX: tornar isso um link */}

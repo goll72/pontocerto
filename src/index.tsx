@@ -2,7 +2,7 @@ import { render } from "solid-js/web";
 import "solid-devtools";
 
 import Sidebar from "./components/Sidebar";
-import { Col, Container, Row } from "solid-bootstrap";
+import { Col, Row } from "solid-bootstrap";
 import UserStatusPanel from "./components/UserStatusPanel";
 import DeadlineStatusPanel from "./components/DeadlineStatusPanel";
 
@@ -16,19 +16,13 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 
 render(
     () => (
-        <Container class="d-flex flex-md-row flex-column">
+        <div class="d-flex flex-md-row flex-column" style="height: 100dvh;">
             <Sidebar />
-            <Container>
-                <Row>
-                    <Col>
-                        <UserStatusPanel />
-                    </Col>
-                    <Col>
-                        <DeadlineStatusPanel />
-                    </Col>
-                </Row>
-            </Container>
-        </Container>
+            <div class="flex-grow-1 d-flex flex-column flex-md-row gap-5 p-3">
+                <UserStatusPanel />
+                <DeadlineStatusPanel />
+            </div>
+        </div>
     ),
     root!,
 );
