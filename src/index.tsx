@@ -1,8 +1,6 @@
 import { render } from "solid-js/web";
 import "solid-devtools";
-
 import Sidebar from "./components/Sidebar";
-import { Col, Row } from "solid-bootstrap";
 import UserStatusPanel from "./components/UserStatusPanel";
 import DeadlineStatusPanel from "./components/DeadlineStatusPanel";
 
