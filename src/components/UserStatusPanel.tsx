@@ -45,8 +45,7 @@ const UserStatusPanel: Component = () => {
 
                     return (
                         <>
-                            &ldquo;{message}&rdquo;
-                            <br />
+                            <p class="mx-2">&ldquo;{message}&rdquo;</p>
                             {source}
                         </>
                     );
