@@ -45,7 +45,7 @@ const UserStatusPanel: Component = () => {
 
                     return (
                         <>
-                            {message}
+                            &ldquo;{message}&rdquo;
                             <br />
                             {source}
                         </>
