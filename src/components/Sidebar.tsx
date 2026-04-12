@@ -1,14 +1,19 @@
 import type { Component } from "solid-js";
 import style from "./styles/Sidebar.module.scss";
 
+import Logo from "/assets/logo.svg?component-solid";
+
 const Sidebar: Component = () => {
     return (
         <div class="d-flex flex-md-column flex-row p-3 bg-primary text-white align-items-center h-100">
-            <h1 class="mb-1 fw-bold font-monospace">
-                PONTO
-                <br />
-                CERTO
-            </h1>
+            <div class="d-flex flex-row mb-1 px-2 gap-3">
+                <Logo class={style.logo} />
+                <h1 class="fw-bold font-monospace">
+                    PONTO
+                    <br />
+                    CERTO
+                </h1>
+            </div>
 
             <div>
                 {(() => {
