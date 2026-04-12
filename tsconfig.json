@@ -4,6 +4,8 @@
     "jsxImportSource": "solid-js",
     "target": "esnext",
 
+    "baseUrl": "./src",
+
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "isolatedModules": true,

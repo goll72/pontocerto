@@ -15,4 +15,7 @@ export default {
         outDir: "../dist",
     },
     root: "src",
+    resolve: {
+        tsconfigPaths: true,
+    },
 } satisfies UserConfig;
