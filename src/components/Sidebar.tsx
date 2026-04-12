@@ -5,7 +5,7 @@ import Logo from "/assets/logo.svg?component-solid";
 
 const Sidebar: Component = () => {
     return (
-        <div class="d-flex flex-md-column flex-row p-3 bg-primary ${style.color} text-white align-items-center h-100">
+        <div class={`d-flex flex-md-column flex-row p-2 p-md-3 bg-primary ${style.color} text-white align-items-center py-2 py-md-3`}>
             <div class="d-flex flex-row mb-1 px-2 gap-3">
                 <Logo class={`${style.logo} image-fluid`}/>
                 <a
