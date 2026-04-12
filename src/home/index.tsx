@@ -11,7 +11,7 @@ render(
     () => (
         <div class="d-flex flex-md-row flex-column" style="height: 100dvh;">
             <Sidebar />
-            <div class="flex-grow-1 d-flex flex-column flex-md-row gap-5 p-3">
+            <div class="flex-grow-1 d-flex flex-column flex-xl-row gap-5 p-3">
                 <UserStatusPanel />
                 <DeadlineStatusPanel />
             </div>
