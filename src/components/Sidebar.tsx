@@ -92,16 +92,15 @@ const Sidebar: Component = () => {
                 </li>
             </ul>
 
-            <footer class="text-center bg-black mt-auto" style="width: 250px">
-                <a
-                    class="nav-link active text-white gap-1"
-                    aria-current="page"
-                    href="/home/"
-                >
-                    <i class="bi bi-box-arrow-left"></i>
-                    <span class="mx-3 fw-bold d-none d-md-inline">Sair</span>
-                </a>
-            </footer>
+            <div class="mt-auto py-1 px-2 d-flex justify-content-center justify-content-md-start">
+                    <a
+                      class="d-inline-flex align-items-center text-white text-decoration-none px-1 py-1 rounded"
+                      href="/home/"
+                    >
+                      <i class={`bi bi-box-arrow-left fs-5 ${style.icon}`}></i>
+                      <span class="ms-1 fw-bold d-none d-md-inline fs-5">Sair</span>
+                    </a>
+            </div>
         </div>
     );
 };
