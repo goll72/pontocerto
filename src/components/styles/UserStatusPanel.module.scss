@@ -3,6 +3,10 @@ $pfp-width: 12rem;
 $icon-offset-y: $pfp-width - 3.5rem;
 $icon-offset-x: $pfp-width - 2.5rem;
 
+.root {
+  width: 24rem;
+}
+
 .pfp-container {
   width: $pfp-width;
   margin: auto;

@@ -1,4 +1,4 @@
-import { Button, Col, Container, Image, Row } from "solid-bootstrap";
+import { Button, Container, Image, Row } from "solid-bootstrap";
 import type { Component } from "solid-js";
 
 import style from "./styles/UserStatusPanel.module.scss";
@@ -17,7 +17,7 @@ const MESSAGES: [string, string][] = [
 
 const UserStatusPanel: Component = () => {
     return (
-        <Container>
+        <Container class={`my-auto ${style.root}`}>
             <div class={style["pfp-container"]}>
                 <Image
                     src="/assets/dummy-pfp.png"
