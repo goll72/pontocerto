@@ -16,12 +16,21 @@
     "strict": true,
     "types": [
       "vite-plugin-solid-svg/types",
-      "vite/client"
+      "vite/client",
+      "node"
     ],
 
     "plugins": [
       {
-        "name": "typescript-plugin-css-modules"
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "goToDefinition": true,
+          "rendererOptions": {
+            "sass": {
+              "loadPaths": ["src"]
+            }
+          }
+        }
       }
     ]
   }

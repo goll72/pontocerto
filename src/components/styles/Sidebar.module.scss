@@ -1,23 +1,26 @@
+@use "sass:map";
+
+@import "prelude.scss";
+
 .logo {
   --width: 92px;
   --height: 70px;
 
-  --fill: #f9f8f8;
+  --fill: $white;
 
   margin-top: 10px;
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: map.get($grid-breakpoints, "md")) {
   .logo {
+
     width: 60px;
+    height: 47px;
   }
 }
 
-.icon {
-  -webkit-text-stroke: 1.5px #f9f8f8;
+.bold-icon {
+  -webkit-text-stroke: 1.5px $white;
 }
 
-.color {
-  background-color: #1E90FF;
-}

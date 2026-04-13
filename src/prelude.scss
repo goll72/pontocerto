@@ -1,0 +1,13 @@
+@import "bootstrap/scss/functions";
+
+// Overrides para variáveis SCSS do Bootstrap devem vir aqui!
+$primary: #1e90ff;
+
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+
+// Overrides para maps SCSS do Bootstrap devem vir aqui!
+
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
