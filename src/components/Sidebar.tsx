@@ -109,12 +109,7 @@ const Sidebar: Component = () => {
                     <a
                         class="nav-link icon-link icon-link-hover text-white gap-1"
                         style="--bs-icon-link-transform: translate3d(0, -.51rem, 0);"
-                        href="/home/"
-                        onclick={(e) => {
-                            if (window.location.pathname === "/home/") {
-                                e.preventDefault();
-                            }
-                        }}
+                        href="/authentication/login/"
                     >
                         <i
                             class={`bi bi-box-arrow-left ${style["bold-icon"]}`}

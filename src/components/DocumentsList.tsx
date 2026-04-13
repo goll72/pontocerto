@@ -15,12 +15,13 @@ type File = {
     size: string;
 };
 
+
 const DUMMY_FILES = [
     { name: "relatrorio.pdf", size: "2.4 MB" },
     { name: "contrato.docx", size: "1.1 MB" },
     { name: "Planilha.xlsx", size: "3.0 MB" },
     { name: "ModeloJeans.png", size: "3.0 MB" },
-];
+]
 
 const Filecard: Component<{ file: File }> = (props) => {
     return (
