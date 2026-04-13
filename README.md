@@ -33,7 +33,7 @@ estão configuradas adequadamente no seu editor de texto:
 
  - `biome`
  - `typescript`
- - `typescript-plugin-css-modules` (`tsconfig.json`)
+ - `typescript-plugin-css-modules`[^1]
  - `some-sass-language-server`
 
 Para depurar eventuais bugs na parte reativa da UI,
@@ -43,11 +43,15 @@ Opcionalmente, configure o seu editor de texto para
 usar o `superhtml` e o `vscode-html-languageserver`
 como servidores LSP para arquivos HTML.
 
+[^1]: Configure o seu editor para usar o `typescript`
+desse projeto/_workspace_ em vez de usar uma versão
+_built-in_, para garantir que o _plugin_ irá funcionar.
+
 ## Compilação e _deploy_
 
 Para compilar e fazer o _deploy_ do projeto, rode:
 
-```
+```sh
 npm run build
 ansible-playbook ansible/playbooks/all.yml
 ```
