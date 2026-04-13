@@ -6,7 +6,7 @@ import Logo from "/assets/logo.svg?component-solid";
 const Sidebar: Component = () => {
     return (
         <div
-            class={`position-fixed d-flex flex-md-column flex-row p-2 p-md-3 bg-primary text-white align-items-center py-2 py-md-3 ${style["sticky-sidebar"]}`}
+            class={`position-fixed d-flex flex-md-column flex-row p-2 p-md-3 bg-primary text-white align-items-center py-2 py-md-3 ${style.sidebar}`}
         >
             <div class="d-flex flex-row mb-1 px-2 gap-3">
                 <a

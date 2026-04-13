@@ -3,24 +3,33 @@
 @import "prelude.scss";
 
 .logo {
-  --width: 92px;
-  --height: 70px;
-
-  --fill: $white;
+  --width: 60px;
+  --height: 47px;
+    
+  --fill: #{$white};
 
   margin-top: 10px;
 }
 
-
-@media (max-width: map.get($grid-breakpoints, "md")) {
+@media (min-width: map.get($grid-breakpoints, "md")) {
   .logo {
+    --width: 92px;
+    --height: 70px;
+  }
+}
 
-    width: 60px;
-    height: 47px;
+.sidebar {
+  width: 100dvw;
+  height: $sidebar-height;
+}
+
+@media (min-width: map.get($grid-breakpoints, "md")) {
+  .sidebar {
+    width: $sidebar-width;
+    height: 100dvh;
   }
 }
 
 .bold-icon {
-  -webkit-text-stroke: 1.5px $white;
+  -webkit-text-stroke: 1px $white;
 }
-

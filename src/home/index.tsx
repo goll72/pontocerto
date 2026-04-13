@@ -2,6 +2,7 @@ import { render } from "solid-js/web";
 import "solid-devtools";
 
 import Sidebar from "components/Sidebar";
+import Content from "components/Content";
 import UserStatusPanel from "components/UserStatusPanel";
 import DeadlineStatusPanel from "components/DeadlineStatusPanel";
 
@@ -11,10 +12,10 @@ render(
     () => (
         <div class="d-flex flex-md-row flex-column" style="height: 100dvh;">
             <Sidebar />
-            <div class="flex-grow-1 d-flex flex-column flex-xl-row gap-5 p-3">
+            <Content class="flex-column flex-xl-row gap-5">
                 <UserStatusPanel />
                 <DeadlineStatusPanel />
-            </div>
+            </Content>
         </div>
     ),
     root!,

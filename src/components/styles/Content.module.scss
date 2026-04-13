@@ -1,0 +1,15 @@
+@use "sass:map";
+
+@import "prelude.scss";
+
+.content {
+  margin-left: initial;
+  margin-top: $sidebar-height;
+}
+
+@media (min-width: map.get($grid-breakpoints, "md")) {
+  .content {
+    margin-left: $sidebar-width;
+    margin-top: initial;
+  }
+}
