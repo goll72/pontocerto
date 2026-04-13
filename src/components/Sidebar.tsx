@@ -13,7 +13,7 @@ const Sidebar: Component = () => {
                     class="nav-link icon-link"
                     aria-current="page"
                     href="/home/"
-                    onclick={(e) => {
+                    on:click={(e) => {
                         if (window.location.pathname === "/home/") {
                             e.preventDefault();
                         }
@@ -36,7 +36,7 @@ const Sidebar: Component = () => {
                         style="--bs-icon-link-transform: translate3d(0, -.51rem, 0);"
                         aria-current="page"
                         href="/orders/"
-                        onclick={(e) => {
+                        on:click={(e) => {
                             if (window.location.pathname === "/orders/") {
                                 e.preventDefault();
                             }

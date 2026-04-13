@@ -1,17 +1,9 @@
 import { For, Index, Show, type Component } from "solid-js";
+import { Button, Container, Accordion, Badge } from "solid-bootstrap";
 
 import style from "./styles/OrderList.module.scss";
 
-import {
-    Button,
-    Col,
-    Container,
-    FormControl,
-    InputGroup,
-    Row,
-    Accordion,
-    Badge,
-} from "solid-bootstrap";
+import SearchBarHeader from "./SearchBarHeader";
 
 type Order = {
     supplier: string;
@@ -176,40 +168,7 @@ const OrderItem: Component<{ id: string; order: Order }> = (props) => {
 const OrderList: Component = () => {
     return (
         <Container>
-            <Row class="gap-0 row-gap-3">
-                {/* NOTE: O column span do md é maior que o column span
-                            do xs porque esse é o threshold para a sidebar
-                            trocar de orientação. (a sidebar ocupa uma
-                            quantidade considerável de espaço horizontal)
-                 */}
-                <Col xs={12} sm={3} md={4} lg={3}>
-                    <span class="h2">Pedidos</span>
-                </Col>
-                <Col xs={12} sm={9} md={7} lg={6} class="d-flex gap-3">
-                    <InputGroup>
-                        <Button variant="light" class="border-dark-subtle">
-                            <i class="bi bi-search"></i>
-                        </Button>
-                        <FormControl
-                            placeholder="Buscar..."
-                            aria-label="Barra de pesquisa"
-                        />
-                    </InputGroup>
-                    <Button variant="light" class="border-dark-subtle">
-                        <i class="bi bi-filter-right"></i>
-                    </Button>
-                </Col>
-                <Col
-                    xs={{ span: 4, offset: 8 }}
-                    md={{ span: 6, offset: 6 }}
-                    lg={{ span: 3, offset: 0 }}
-                    class="d-flex flex-row-reverse"
-                >
-                    <Button variant="primary">
-                        <i class="bi bi-plus"></i> Novo pedido
-                    </Button>
-                </Col>
-            </Row>
+            <SearchBarHeader title="Pedidos" buttonText="Novo Pedido" />
             <Accordion class="py-4">
                 <For each={DUMMY_ORDERS}>
                     {(order, index) => (
