@@ -61,6 +61,12 @@
                     - location: /
                       core:
                         root: /srv/www
+                  gzip:
+                    enable: true
+                  custom_directives: |
+                    location = / {
+                        return 301 /login/;
+                    }
     - name: Reload nginx to ensure it is has been configured properly for TLS
       ansible.builtin.systemd_service:
         name: nginx

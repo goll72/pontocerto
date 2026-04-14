@@ -31,7 +31,6 @@ export default {
         emptyOutDir: true,
         rolldownOptions: {
             input: {
-                main: page("/"),
                 home: page("/home/"),
                 orders: page("/orders/"),
                 finances: page("/finances/"),
