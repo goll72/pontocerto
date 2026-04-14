@@ -71,9 +71,9 @@ const BalanceDashboard: Component = () => {
     const span = REVENUE - EXPENSES > 0 ? 4 : 6;
 
     return (
-        <Container class="py-3">
+        <Container>
             <h3>Saldo</h3>
-            <Row class="py-4">
+            <Row class="py-4 gy-3">
                 <Col xs={12} lg={span}>
                     <ValueCardWithComparison
                         value={REVENUE}
