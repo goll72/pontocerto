@@ -88,7 +88,7 @@ const OrderItem: Component<{ id: string; order: Order }> = (props) => {
                 </Button>
             </Accordion.Header>
             <Accordion.Body>
-                <div class="d-flex flex-row gap-5">
+                <div class="d-flex flex-row gap-5 flex-wrap">
                     <div>
                         <span class="fw-bold">Fornecedor</span>
                         <p>{props.order.supplier}</p>

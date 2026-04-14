@@ -21,6 +21,8 @@
 .sidebar {
   width: 100dvw;
   height: $sidebar-height;
+
+  z-index: 999;
 }
 
 @media (min-width: map.get($grid-breakpoints, "md")) {
