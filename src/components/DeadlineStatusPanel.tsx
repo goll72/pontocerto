@@ -2,13 +2,11 @@ import { Card, ListGroup } from "solid-bootstrap";
 import type { Component, ParentComponent } from "solid-js";
 
 const WithDate: ParentComponent<{ date: Date }> = (props) => {
+    const dateFormatter = Intl.DateTimeFormat("pt-BR", { dateStyle: "short" });
+
     return (
         <>
-            {/* JavaScript indexa meses a partir do zero */}
-            <b>
-                {props.date.getUTCDate().toString().padStart(2, "0")}/
-                {(props.date.getUTCMonth() + 1).toString().padStart(2, "0")}
-            </b>
+            <b>{dateFormatter.format(props.date)}</b>
             <span class="mx-3 border-start border-dark-subtle"></span>
             {props.children}
         </>

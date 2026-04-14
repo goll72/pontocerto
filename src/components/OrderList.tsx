@@ -52,6 +52,8 @@ const DUMMY_ORDERS: Order[] = [
 ];
 
 const OrderItem: Component<{ id: string; order: Order }> = (props) => {
+    const dateFormatter = Intl.DateTimeFormat("pt-BR", { dateStyle: "short" });
+
     let total = props.order.amountsPerSize.reduce((prev, curr) => prev + curr);
     let totalFinished = props.order.amountsPerSizeFinished.reduce(
         (prev, curr) => prev + curr,
@@ -120,24 +122,13 @@ const OrderItem: Component<{ id: string; order: Order }> = (props) => {
                             </Index>
                         </div>
                     </div>
-                    {/* XXX: this is horrible */}
                     <Show when={props.order.expectedEndDate}>
                         {(date) => (
                             <div>
                                 <span class="fw-bold">
                                     Data de Término Prevista
                                 </span>
-                                <p>
-                                    {date()
-                                        .getUTCDate()
-                                        .toString()
-                                        .padStart(2, "0")}
-                                    /
-                                    {(date().getUTCMonth() + 1)
-                                        .toString()
-                                        .padStart(2, "0")}
-                                    /{date().getUTCFullYear().toString()}
-                                </p>
+                                <p>{dateFormatter.format(date())}</p>
                             </div>
                         )}
                     </Show>
@@ -145,17 +136,7 @@ const OrderItem: Component<{ id: string; order: Order }> = (props) => {
                         {(date) => (
                             <div>
                                 <span class="fw-bold">Data de Término</span>
-                                <p>
-                                    {date()
-                                        .getUTCDate()
-                                        .toString()
-                                        .padStart(2, "0")}
-                                    /
-                                    {(date().getUTCMonth() + 1)
-                                        .toString()
-                                        .padStart(2, "0")}
-                                    /{date().getUTCFullYear().toString()}
-                                </p>
+                                <p>{dateFormatter.format(date())}</p>
                             </div>
                         )}
                     </Show>

@@ -44,7 +44,7 @@ const Sidebar: Component = () => {
                     >
                         <i class={`bi bi-box ${style["bold-icon"]}`}></i>
                         <span class="mx-3 fw-bold fs-5 d-none d-md-inline">
-                            Pedido
+                            Pedidos
                         </span>
                     </a>
                 </li>
