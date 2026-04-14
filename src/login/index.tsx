@@ -6,22 +6,19 @@ import style from "/components/styles/Sidebar.module.scss";
 const root = document.getElementById("root");
 import Logo from "/assets/logo.svg?component-solid";
 
-import { Container, Form, Button, Card } from "solid-bootstrap";
+import { Form, Button, Card } from "solid-bootstrap";
 
 const LoginPage: Component = () => {
     return (
-        <Container
-            fluid
-            class="vh-100 d-flex flex-column justify-content-center align-items-center bg-primary"
-        >
-            <div class="mb-4 text-center d-flex align-items-center gap-3">
+        <div class="mx-auto d-flex flex-column justify-content-center align-items-center">
+            <div class="text-center d-flex align-items-center gap-3 pb-3">
                 <Logo class={`${style.logo} image-fluid`} />
                 <h2 class="fw-bold text-white">PONTOCERTO</h2>
             </div>
 
-            <Card class="p-4 shadow" style="width:350px">
+            <Card class="p-4 shadow my-3" style="width:350px">
                 <Card.Body>
-                    <h4 class="fw-bold text-center mb-2">Bem Vindo</h4>
+                    <h4 class="fw-bold text-center mb-2">Bem-vindo</h4>
                     <p class="text-muted text-center small mb-4">
                         Insira suas credenciais para acessar sua conta
                     </p>
@@ -63,12 +60,15 @@ const LoginPage: Component = () => {
                     </p>
                 </Card.Body>
             </Card>
-        </Container>
+        </div>
     );
 };
 render(
     () => (
-        <div class="d-flex flex-md-row flex-column" style="height: 100dvh;">
+        <div
+            class="d-flex flex-md-row flex-columni bg-primary overflow-y-scroll"
+            style="height: 100dvh;"
+        >
             <LoginPage />
         </div>
     ),
