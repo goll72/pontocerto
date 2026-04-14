@@ -65,7 +65,6 @@ const DUMMY_SUPPLIERS: Supplier[] = [
 ];
 
 const OrderItem: Component<{ id: string; supplier: Supplier }> = (props) => {
-
     return (
         <Accordion.Item eventKey={props.id}>
             <Accordion.Header>
@@ -82,38 +81,37 @@ const OrderItem: Component<{ id: string; supplier: Supplier }> = (props) => {
                 </Button>
             </Accordion.Header>
             <Accordion.Body>
-                <div class="d-flex flex-row gap-5">
+                <div class="d-flex flex-row gap-5 flex-wrap">
                     <div>
-                        <span class="fw-bold">email</span>
+                        <span class="fw-bold">CNPJ</span>
+                        <p>{props.supplier.cnpj}</p>
+                    </div>
+                    <div>
+                        <span class="fw-bold">E-mail</span>
                         <p>{props.supplier.email}</p>
                     </div>
                     <div>
-                        <span class="fw-bold">telefone</span>
+                        <span class="fw-bold">Telefone</span>
                         <p>{props.supplier.telefone}</p>
                     </div>
                     <div>
-                        <span class="fw-bold">Rua</span>
-                        <p>{props.supplier.street}</p>
-                    </div>
-                    <div>
-                        <span class="fw-bold">Numero Rua</span>
-                        <p>{props.supplier.numberstreet}</p>
+                        <span class="fw-bold">Endereço</span>
+                        <p>
+                            {props.supplier.street}, nº{" "}
+                            {props.supplier.numberstreet}
+                        </p>
                     </div>
                     <div>
                         <span class="fw-bold">CEP</span>
                         <p>{props.supplier.cep}</p>
                     </div>
                     <div>
-                        <span class="fw-bold">UF</span>
-                        <p>{props.supplier.uf}</p>
-                    </div>
-                    <div>
                         <span class="fw-bold">Cidade</span>
                         <p>{props.supplier.city}</p>
                     </div>
                     <div>
-                        <span class="fw-bold">CNPJ</span>
-                        <p>{props.supplier.cnpj}</p>
+                        <span class="fw-bold">UF</span>
+                        <p>{props.supplier.uf}</p>
                     </div>
                 </div>
             </Accordion.Body>
@@ -124,7 +122,10 @@ const OrderItem: Component<{ id: string; supplier: Supplier }> = (props) => {
 const SuppliersList: Component = () => {
     return (
         <Container>
-            <SearchBarHeader title="Fornecedores" buttonText="Novo Fornecedor" />
+            <SearchBarHeader
+                title="Fornecedores"
+                buttonText="Novo Fornecedor"
+            />
             <Accordion class="py-4">
                 <For each={DUMMY_SUPPLIERS}>
                     {(order, index) => (
