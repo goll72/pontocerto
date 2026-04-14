@@ -42,8 +42,8 @@ O diretório `ansible` contém os arquivos relacionados ao _deploy_ do projeto:
  - `files`: arquivos estáticos/templates
  - `collections`: coleções de _roles_ e _playbooks_ sendo usados
  - `playbooks`: todos os _playbooks_ usados, separados por tipo/escopo.
-   - `all.yml`: importa todos os demais _playbooks_ na ordem correta
-     para atingir o estado desejado.
+   - `all.yml`: importa todos os demais _playbooks_ na ordem correta,
+     executando _tasks_ no servidor para atingir o estado desejado.
 
 Já `src` corresponde ao código fonte do _website_ propriamente dito, com os seguintes
 subdiretórios:
@@ -61,3 +61,14 @@ subdiretórios:
  - `prelude.scss`: agrupa variáveis e _overrides_ SCSS, deve ser importado em um arquivo `.module.scss`
    para que seja possível acessar essas variáveis
  - `styles.scss`: definições de estilo globais, incluindo _import_ do Bootstrap
+
+O diretório raiz contém arquivos de configuração, entre eles:
+
+ - `ansible.cfg`: configurações do Ansible
+ - `biome.json`: configurações do Biome (linter e formatador)
+ - `package.json`: informações de dependências Javascript (npm)
+ - `pyproject.toml`: informações de dependências Python (uv)
+ - `tsconfig.json`: configurações de Typescript: target, módulos, tipos externos etc.
+ - `vite.config.ts`: configurações do Vite, que serve como servidor de desenvolvimento,
+   com suporte a _hot module reloading_ (HMR), além de incorporar _bundlers_ e _transpilers_.
+ - `package-lock.json` e `uv.lock`: _lockfiles_ do npm e uv respectivamente
