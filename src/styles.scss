@@ -1,3 +1,5 @@
+@layer bootstrap {
+ 
 @import "prelude.scss";
 
 // Layout & components
@@ -42,3 +44,5 @@
 
 $bootstrap-icons-font-dir: "bootstrap-icons/font/fonts";
 @import "bootstrap-icons/font/bootstrap-icons.scss";
+
+}

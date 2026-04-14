@@ -3,6 +3,8 @@ $pfp-width: 12rem;
 $icon-offset-y: $pfp-width - 3.5rem;
 $icon-offset-x: $pfp-width - 2.5rem;
 
+@layer component {
+
 .root {
   width: 24rem;
 }
@@ -47,4 +49,6 @@ $icon-offset-x: $pfp-width - 2.5rem;
   &:hover {
     cursor: pointer;
   }
+}
+
 }

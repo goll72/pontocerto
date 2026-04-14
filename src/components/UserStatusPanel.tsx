@@ -19,11 +19,7 @@ const UserStatusPanel: Component = () => {
     return (
         <Container class={`my-auto ${style.root}`}>
             <div class={style["pfp-container"]}>
-                <Image
-                    src="/assets/dummy-pfp.png"
-                    roundedCircle
-                    class={style.pfp}
-                />
+                <Image src="/dummy-pfp.png" roundedCircle class={style.pfp} />
                 <div
                     class={`position-absolute ${style["pfp-plus-icon-background"]}`}
                     on:click={() => {
