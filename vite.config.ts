@@ -38,7 +38,6 @@ export default {
                 suppliers: page("/suppliers/"),
                 login: page("/login/"),
                 signup: page("/signup/"),
-                resetPassword: page("/login/reset-password/"),
             },
         },
     },

@@ -23,7 +23,7 @@ const LoginPage: Component = () => {
                 <Card.Body>
                     <h4 class="fw-bold text-center mb-2">Bem Vindo</h4>
                     <p class="text-muted text-center small mb-4">
-                        Coloque suas credenciais para acessar sua conta
+                        Insira suas credenciais para acessar sua conta
                     </p>
 
                     <Form.Group class="mb-3">
@@ -37,18 +37,15 @@ const LoginPage: Component = () => {
                     <Form.Group class="mb-3">
                         <div class="d-flex justify-content-between">
                             <Form.Label>Senha</Form.Label>
-                            <a href="/login/reset-password/" class="small">
-                                Esqueceu sua senha?
-                            </a>
                         </div>
                         <Form.Control
                             type="password"
-                            placeholder="Coloque sua senha"
+                            placeholder="Insira sua senha"
                         ></Form.Control>
                     </Form.Group>
 
                     <Form.Group class="mb-3">
-                        <Form.Check type="checkbox" label="Lembre de mim" />
+                        <Form.Check type="checkbox" label="Lembre-se de mim" />
                     </Form.Group>
 
                     <Button class="w-100 mb-3" variant="dark">
@@ -58,7 +55,7 @@ const LoginPage: Component = () => {
                     </Button>
 
                     <Button class="w-100 mb-3" variant="outline-secondary">
-                        <i class="bi bi-google"></i> Entrar com Google
+                        <i class="bi bi-lock-fill"></i> Entrar usando passkeys
                     </Button>
 
                     <p class="text-center small mt-3">
