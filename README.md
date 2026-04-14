@@ -7,13 +7,19 @@ um repositório de documentos, incluindo documentos relevantes
 para certificações como o ABVTEX, além de permitir emissão de
 NF-e (eventualmente).
 
+> [!NOTE]
+>
+> Confira a documentação sobre a [estrutura de diretórios adotada](docs/HIER.md)
+> para ver uma breve descrição de cada tipo de arquivo nesse
+> repositório.
+
 ## Desenvolvimento
 
 Instale as dependências:
 
- - `git-lfs`
- - `uv`
- - `node`
+ - `git-lfs` (necessário para obter imagens ao clonar o repositório)
+ - `uv` (necessário apenas para realizar _deploy_ usando o Ansible)
+ - `node` (v20 ou superior)
  - `npm`
 
 Para configurar o ambiente de desenvolvimento, rode:
@@ -45,7 +51,18 @@ como servidores LSP para arquivos HTML.
 
 [^1]: Configure o seu editor para usar o `typescript`
 desse projeto/_workspace_ em vez de usar uma versão
-_built-in_, para garantir que o _plugin_ irá funcionar.
+_built-in_, para garantir que o plugin irá funcionar.
+
+## Testando localmente
+
+Para testar o projeto localmente, rode:
+
+```sh
+npm run serve
+```
+
+Um servidor HTTP local será iniciado, podendo ser
+acessado através da URL `http://localhost:3000`.
 
 ## Compilação e _deploy_
 

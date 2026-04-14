@@ -70,5 +70,7 @@ O diretório raiz contém arquivos de configuração, entre eles:
  - `pyproject.toml`: informações de dependências Python (uv)
  - `tsconfig.json`: configurações de Typescript: target, módulos, tipos externos etc.
  - `vite.config.ts`: configurações do Vite, que serve como servidor de desenvolvimento,
-   com suporte a _hot module reloading_ (HMR), além de incorporar _bundlers_ e _transpilers_.
- - `package-lock.json` e `uv.lock`: _lockfiles_ do npm e uv respectivamente
+   com suporte a _hot module reloading_ (HMR), além de incorporar _bundlers_ e _transpilers_
+   para realizar a compilação do projeto.
+ - `package-lock.json` e `uv.lock`: _lockfiles_ do npm e uv respectivamente, servem para
+   garantir que as mesmas versões das dependências serão instaladas, mesmo em ambientes diferentes
