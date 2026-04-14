@@ -23,10 +23,10 @@ const SearchBarHeader: Component<{
                         trocar de orientação. (a sidebar ocupa uma
                         quantidade considerável de espaço horizontal)
              */}
-            <Col xs={12} sm={3} md={4} lg={3}>
+            <Col xs={12} sm={4} md={6} lg={3}>
                 <span class="h2">{props.title}</span>
             </Col>
-            <Col xs={12} sm={9} md={7} lg={6} class="d-flex gap-3">
+            <Col xs={12} sm={8} md={6} class="d-flex gap-3">
                 <InputGroup>
                     <Button variant="light" class="border-dark-subtle">
                         <i class="bi bi-search"></i>
