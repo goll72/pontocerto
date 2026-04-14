@@ -1,7 +1,7 @@
 import { For, Index, Show, type Component } from "solid-js";
 import { Button, Container, Accordion, Badge } from "solid-bootstrap";
 
-import style from "./styles/OrderList.module.scss";
+import style from "./styles/SupplierList.module.scss";
 
 import SearchBarHeader from "./SearchBarHeader";
 
@@ -70,7 +70,7 @@ const OrderItem: Component<{ id: string; supplier: Supplier }> = (props) => {
         <Accordion.Item eventKey={props.id}>
             <Accordion.Header>
                 <div class="w-100">
-                    <i class={`bi bi-building ${style["icon-bold"]}`}></i>
+                    <i class={`bi bi-buildings ${style["icon-bold"]}`}></i>
                     {props.supplier.name}
                 </div>
                 <Button
