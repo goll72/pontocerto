@@ -29,81 +29,89 @@ const Sidebar: Component = () => {
                 </h1>
             </div>
 
-            <ul class="nav nav-pills flex-md-column flex-row justify-content-md-start justify-content-center gap-2">
-                <li class="nav-item">
-                    <a
-                        class="nav-link icon-link icon-link-hover text-white gap-1"
-                        style="--bs-icon-link-transform: translate3d(0, -.51rem, 0);"
-                        aria-current="page"
-                        href="/orders/"
-                        on:click={(e) => {
-                            if (window.location.pathname === "/orders/") {
-                                e.preventDefault();
-                            }
-                        }}
-                    >
-                        <i class={`bi bi-box ${style["bold-icon"]}`}></i>
-                        <span class="mx-3 fw-bold fs-5 d-none d-md-inline">
-                            Pedidos
-                        </span>
-                    </a>
-                </li>
+            <ul class="nav nav-pills d-flex flex-row flex-md-column justify-content-between gap-2 w-100 h-100 align-items-center align-items-md-start">
+                <div class="d-flex flex-row flex-md-column gap-2">
+                    <li class="nav-item">
+                        <a
+                            class="nav-link icon-link icon-link-hover text-white gap-1"
+                            style="--bs-icon-link-transform: translate3d(0, -.51rem, 0);"
+                            aria-current="page"
+                            href="/orders/"
+                            on:click={(e) => {
+                                if (window.location.pathname === "/orders/") {
+                                    e.preventDefault();
+                                }
+                            }}
+                        >
+                            <i class={`bi bi-box ${style["bold-icon"]}`}></i>
+                            <span class="mx-3 fw-bold fs-5 d-none d-md-inline">
+                                Pedidos
+                            </span>
+                        </a>
+                    </li>
 
-                <li class="nav-item">
-                    <a
-                        class="nav-link icon-link icon-link-hover text-white gap-1"
-                        style="--bs-icon-link-transform: translate3d(0, -.51rem, 0);"
-                        aria-current="page"
-                        href="/finances/"
-                        onclick={(e) => {
-                            if (window.location.pathname === "/finances/") {
-                                e.preventDefault();
-                            }
-                        }}
-                    >
-                        <i class={`bi bi-wallet ${style["bold-icon"]}`}></i>
-                        <span class="mx-3 fw-bold fs-5 d-none d-md-inline">
-                            Caixa
-                        </span>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a
+                            class="nav-link icon-link icon-link-hover text-white gap-1"
+                            style="--bs-icon-link-transform: translate3d(0, -.51rem, 0);"
+                            aria-current="page"
+                            href="/finances/"
+                            onclick={(e) => {
+                                if (window.location.pathname === "/finances/") {
+                                    e.preventDefault();
+                                }
+                            }}
+                        >
+                            <i class={`bi bi-wallet ${style["bold-icon"]}`}></i>
+                            <span class="mx-3 fw-bold fs-5 d-none d-md-inline">
+                                Caixa
+                            </span>
+                        </a>
+                    </li>
 
-                <li class="nav-item">
-                    <a
-                        class="nav-link icon-link icon-link-hover text-white gap-1"
-                        style="--bs-icon-link-transform: translate3d(0, -.51rem, 0);"
-                        aria-current="page"
-                        href="/documents/"
-                        onclick={(e) => {
-                            if (window.location.pathname === "/documents/") {
-                                e.preventDefault();
-                            }
-                        }}
-                    >
-                        <i class={`bi bi-folder ${style["bold-icon"]}`}></i>
-                        <span class="mx-3 fw-bold fs-5 d-none d-md-inline">
-                            Documentos
-                        </span>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a
+                            class="nav-link icon-link icon-link-hover text-white gap-1"
+                            style="--bs-icon-link-transform: translate3d(0, -.51rem, 0);"
+                            aria-current="page"
+                            href="/documents/"
+                            onclick={(e) => {
+                                if (
+                                    window.location.pathname === "/documents/"
+                                ) {
+                                    e.preventDefault();
+                                }
+                            }}
+                        >
+                            <i class={`bi bi-folder ${style["bold-icon"]}`}></i>
+                            <span class="mx-3 fw-bold fs-5 d-none d-md-inline">
+                                Documentos
+                            </span>
+                        </a>
+                    </li>
 
-                <li class="nav-item">
-                    <a
-                        class="nav-link icon-link icon-link-hover text-white gap-1"
-                        style="--bs-icon-link-transform: translate3d(0, -.51rem, 0);"
-                        href="/suppliers/"
-                        onclick={(e) => {
-                            if (window.location.pathname === "/suppliers/") {
-                                e.preventDefault();
-                            }
-                        }}
-                    >
-                        <i class={`bi bi-buildings ${style["bold-icon"]}`}></i>
-                        <span class="mx-3 fw-bold fs-5 d-none d-md-inline">
-                            Fornecedores
-                        </span>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a
+                            class="nav-link icon-link icon-link-hover text-white gap-1"
+                            style="--bs-icon-link-transform: translate3d(0, -.51rem, 0);"
+                            href="/suppliers/"
+                            onclick={(e) => {
+                                if (
+                                    window.location.pathname === "/suppliers/"
+                                ) {
+                                    e.preventDefault();
+                                }
+                            }}
+                        >
+                            <i
+                                class={`bi bi-buildings ${style["bold-icon"]}`}
+                            ></i>
+                            <span class="mx-3 fw-bold fs-5 d-none d-md-inline">
+                                Fornecedores
+                            </span>
+                        </a>
+                    </li>
+                </div>
 
                 <li class="nav-item">
                     <a
