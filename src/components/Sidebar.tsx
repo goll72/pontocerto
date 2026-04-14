@@ -109,7 +109,7 @@ const Sidebar: Component = () => {
                     <a
                         class="nav-link icon-link icon-link-hover text-white gap-1"
                         style="--bs-icon-link-transform: translate3d(0, -.51rem, 0);"
-                        href="/authentication/login/"
+                        href="/login/"
                     >
                         <i
                             class={`bi bi-box-arrow-left ${style["bold-icon"]}`}
