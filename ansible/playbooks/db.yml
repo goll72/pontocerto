@@ -1,8 +1,26 @@
 - name: Relational database setup using PostgreSQL
   hosts: system
   tasks:
+    - name: Install ACL utilities (needed to use `become` with a user other than `root`)
+      become: true
+      ansible.builtin.package:
+        name: acl
+        state: present
     - name: Install PostgreSQL
       become: true
       ansible.builtin.package:
-        name: postgresql
+        name: postgresql-{{ postgresql_version }}
         state: present
+    - name: Install psycopg
+      become: true
+      ansible.builtin.package:
+        name: python3-psycopg
+        state: present
+    - name: Set up a PostgreSQL database
+      become: true
+      become_user: postgres
+      community.postgresql.postgresql_db:
+        login_user: postgres
+        login_unix_socket: /var/run/postgresql
+        name: pontocerto
+        encoding: UTF-8

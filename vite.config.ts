@@ -24,6 +24,10 @@ export default {
     plugins: [devtools(), solidPlugin(), solidSvg(), VitePWA()],
     server: {
         port: 3000,
+        open: "/login/",
+        proxy: {
+            "/api": "http://localhost:8080",
+        },
     },
     build: {
         target: "esnext",

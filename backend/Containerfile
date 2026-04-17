@@ -1,0 +1,8 @@
+FROM debian:trixie-slim
+MAINTAINER goll goll@disroot.org
+USER root
+
+ENV LANG C.UTF-8
+
+RUN apt-get update
+RUN apt-get install -y nodejs

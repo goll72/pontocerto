@@ -21,6 +21,7 @@ Instale as dependências:
  - `uv` (necessário apenas para realizar _deploy_ usando o Ansible)
  - `node` (v20 ou superior)
  - `npm`
+ - `podman`, `podman-compose` (necessário para rodar os _containers_ do banco de dados e _backend_)
 
 Para configurar o ambiente de desenvolvimento, rode:
 
@@ -31,6 +32,10 @@ ansible-galaxy install -r ansible/requirements.yml
 
 npm ci
 ```
+
+> [!NOTE]
+> Para mais detalhes sobre a _workflow_ de desenvolvimento,
+> confira o arquivo [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md).
 
 Ao editar o código, certifique-se de que as seguintes
 ferramentas de desenvolvimento (servidores LSP e linters,
@@ -63,6 +68,13 @@ npm run serve
 
 Um servidor HTTP local será iniciado, podendo ser
 acessado através da URL `http://localhost:3000`.
+
+Para testar o banco de dados e a _backend_
+localmente usando _containers_, rode:
+
+```sh
+podman compose up --build
+```
 
 ## Compilação e _deploy_
 

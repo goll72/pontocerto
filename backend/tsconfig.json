@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
+    "target": "esnext",
+
+    "baseUrl": "./src",
+
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+
+    "strict": true,
+    "types": [
+      "vite-plugin-solid-svg/types",
+      "vite/client",
+      "node"
+    ],
+
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "goToDefinition": true,
+          "rendererOptions": {
+            "sass": {
+              "loadPaths": ["src"]
+            }
+          }
+        }
+      }
+    ]
+  }
+}

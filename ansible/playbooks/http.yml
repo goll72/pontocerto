@@ -1,6 +1,29 @@
 - name: HTTP server and reverse proxy setup using nginx
   hosts: system
   become: true
+  # nginx config snippets that can be reused using YAML anchors
+  vars:
+    upstreams: &upstreams
+      - name: backend
+        servers:
+          - address: 127.0.0.1:8080
+    ssl: &ssl
+      certificate: "{{ uacme_conf_dir }}/{{ domain_name }}/cert.pem"
+      certificate_key: "{{ uacme_conf_dir }}/private/{{ domain_name }}/key.pem"
+    locations: &locations
+      - location: /.well-known/acme-challenge
+        core:
+          root: /var/www
+      - location: /
+        core:
+          root: /srv/www
+    common: &common
+      gzip:
+        enable: true
+      custom_directives: |
+        location = / {
+            return 301 /login/;
+        }
   tasks:
     - name: Install nginx
       ansible.builtin.package:
@@ -41,32 +64,16 @@
         nginx_config_http_template_enable: true
         nginx_config_http_template:
           - config:
-              upstreams:
-                - name: backend
-                  servers:
-                    - address: 127.0.0.1:8080
+              upstreams: *upstreams
               servers:
                 - core:
                     listen:
                       - port: 443
                         ssl: true
                       - port: 80
-                  ssl:
-                    certificate: "{{ uacme_conf_dir }}/{{ domain_name }}/cert.pem"
-                    certificate_key: "{{ uacme_conf_dir }}/private/{{ domain_name }}/key.pem"
-                  locations:
-                    - location: /.well-known/acme-challenge
-                      core:
-                        root: /var/www
-                    - location: /
-                      core:
-                        root: /srv/www
-                  gzip:
-                    enable: true
-                  custom_directives: |
-                    location = / {
-                        return 301 /login/;
-                    }
+                  locations: *locations
+                  ssl: *ssl
+                  <<: *common
     - name: Reload nginx to ensure it is has been configured properly for TLS
       ansible.builtin.systemd_service:
         name: nginx

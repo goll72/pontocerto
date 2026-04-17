@@ -1,0 +1,6 @@
+system:
+  hosts:
+    136.248.82.244:
+  vars:
+    ipv4_addr: 136.248.82.244
+    ipv6_addr: 2603:c021:c000:ab6d::fa0f
