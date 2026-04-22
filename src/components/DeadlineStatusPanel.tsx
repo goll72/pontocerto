@@ -1,5 +1,6 @@
-import { Card, ListGroup } from "solid-bootstrap";
 import type { Component, ParentComponent } from "solid-js";
+
+import { Card, ListGroup } from "solid-bootstrap";
 
 const WithDate: ParentComponent<{ date: Date }> = (props) => {
     const dateFormatter = Intl.DateTimeFormat("pt-BR", { dateStyle: "short" });
@@ -18,10 +19,11 @@ const DeadlineStatusPanel: Component = () => {
         <Card class="m-auto">
             <Card.Header class="d-flex flex-row justify-content-between">
                 <span class="fw-bold">Deadlines</span>
-                {/* XXX: fazer esse anchor apontar para algo */}
-                <a href="#" class="text-body-secondary">
+                {/* biome-ignore-start lint/a11y/useValidAnchor: XXX: will be fixed later */}
+                <a href={"#"} class="text-body-secondary">
                     Ver mais...
                 </a>
+                {/* biome-ignore-end lint/a11y/useValidAnchor: ... */}
             </Card.Header>
             <Card.Body>
                 <ListGroup variant="flush">

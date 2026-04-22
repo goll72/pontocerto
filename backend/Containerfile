@@ -1,8 +1,24 @@
-FROM debian:trixie-slim
-MAINTAINER goll goll@disroot.org
-USER root
+FROM debian:forky
+LABEL org.opencontainers.image.authors="goll <goll@disroot.org>"
 
-ENV LANG C.UTF-8
+EXPOSE 8080/tcp
 
-RUN apt-get update
-RUN apt-get install -y nodejs
+ENV LANG=C.UTF-8
+ENV HOME=/tmp
+ENV NODE_ENV=development
+ENV DATABASE_URL=postgres://postgres:_this_is_a_dummy_password_@db:5432/pontocerto
+
+RUN apt-get update && apt-get install -y --no-install-recommends nodejs npm
+
+RUN useradd -d /nonexistent -M -s /usr/sbin/nologin pontocerto
+
+WORKDIR /app
+
+COPY --exclude=node_modules . .
+RUN chown -R pontocerto .
+
+USER pontocerto
+
+RUN npm install
+
+CMD node --import=tsx src/main.ts

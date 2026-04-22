@@ -1,4 +1,5 @@
 import type { Component } from "solid-js";
+
 import style from "./styles/Sidebar.module.scss";
 
 import Logo from "/assets/logo.svg?component-solid";

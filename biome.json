@@ -1,10 +1,5 @@
 {
-    "$schema": "https://biomejs.dev/schemas/2.4.10/schema.json",
-    "vcs": {
-        "enabled": true,
-        "clientKind": "git",
-        "useIgnoreFile": true
-    },
+    "$schema": "https://biomejs.dev/schemas/2.4.11/schema.json",
     "files": {
         "ignoreUnknown": false
     },
@@ -18,6 +13,7 @@
         "rules": {
             "recommended": true,
             "style": {
+                "noNonNullAssertion": "off",
                 "useImportType": {
                     "level": "on",
                     "options": {
@@ -32,11 +28,35 @@
             "quoteStyle": "double"
         }
     },
+    "json": {
+        "formatter": {
+            "trailingCommas": "none"
+        }
+    },
     "assist": {
         "enabled": true,
         "actions": {
             "source": {
-                "organizeImports": "on"
+                "organizeImports": {
+                    "level": "on",
+                    "options": {
+                        "groups": [
+                            [
+                                "vite",
+                                "vite/**",
+                                "solid-js",
+                                "solid-js/**",
+                                "solid-devtools"
+                            ],
+                            ":BLANK_LINE:",
+                            ["solid-bootstrap", "solid-bootstrap/**"],
+                            ":BLANK_LINE:",
+                            ["**/*.css", "**/*.scss"],
+                            ":BLANK_LINE:",
+                            ["**"]
+                        ]
+                    }
+                }
             }
         }
     }

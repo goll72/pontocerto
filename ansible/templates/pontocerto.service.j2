@@ -1,0 +1,25 @@
+[Unit]
+Description=Backend server for PontoCerto
+After=network.target
+
+[Service]
+Type=exec
+User=pontocerto
+WorkingDirectory={{ backend_dir }}
+
+ExecStart=npm ci
+ExecStart=node --import=tsx src/main.ts
+
+NoNewPrivileges=yes
+ProtectSystem=strict
+ReadWritePaths={{ backend_dir }}
+RestrictNamespaces=yes
+RestrictAddressFamilies=AF_INET AF_INET6
+PrivateTmp=yes
+DevicePolicy=closed
+PrivateDevices=yes
+ProtectKernelTunables=yes
+
+LockPersonality=yes
+SystemCallArchitectures=native
+SystemCallFilter=@system-service

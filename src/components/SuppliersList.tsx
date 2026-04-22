@@ -1,5 +1,7 @@
-import { For, Index, Show, type Component } from "solid-js";
-import { Button, Container, Accordion, Badge } from "solid-bootstrap";
+import type { Component } from "solid-js";
+import { For, Index, Show } from "solid-js";
+
+import { Accordion, Badge, Button, Container } from "solid-bootstrap";
 
 import style from "./styles/SupplierList.module.scss";
 

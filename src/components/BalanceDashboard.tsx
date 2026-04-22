@@ -103,10 +103,11 @@ const BalanceDashboard: Component = () => {
             <Card class="my-3">
                 <Card.Header class="d-flex flex-row justify-content-between">
                     <span class="fw-bold">Transações recentes</span>
-                    {/* XXX: fazer esse anchor apontar para algo */}
+                    {/* biome-ignore-start lint/a11y/useValidAnchor: XXX: will be fixed later */}
                     <a href="#" class="text-body-secondary">
                         Ver mais...
                     </a>
+                    {/* biome-ignore-end lint/a11y/useValidAnchor: ... */}
                 </Card.Header>
                 <Card.Body>
                     <ListGroup variant="flush">

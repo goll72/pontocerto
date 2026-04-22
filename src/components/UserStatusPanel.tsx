@@ -1,5 +1,6 @@
-import { Button, Container, Image, Row } from "solid-bootstrap";
 import type { Component } from "solid-js";
+
+import { Button, Container, Image, Row } from "solid-bootstrap";
 
 import style from "./styles/UserStatusPanel.module.scss";
 

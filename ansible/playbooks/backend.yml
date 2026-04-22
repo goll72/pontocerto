@@ -1,0 +1,48 @@
+- name: Backend server setup using Node.js
+  hosts: system
+  tasks:
+    - name: Install Node.js
+      become: true
+      ansible.builtin.package:
+        name: nodejs
+        state: present
+    - name: Install npm
+      become: true
+      ansible.builtin.package:
+        name: npm
+        state: present
+    - name: Create a user to run the backend server
+      ansible.builtin.user:
+        name: pontocerto
+        password: '!'
+        home: /nonexistent
+        create_home: false
+        shell: /usr/sbin/nologin
+    - name: Create directory to keep server files
+      ansible.builtin.file:
+        path: "{{ backend_dir }}"
+        state: directory
+        owner: pontocerto
+        group: pontocerto
+        mode: "0755"
+    - name: Sync backend server files
+      become: true
+      become_user: pontocerto
+      ansible.posix.synchronize:
+        src: backend/
+        dest: "{{ backend_dir }}/"
+        archive: true
+        owner: false
+        group: false
+    - name: Create systemd service to run backend server
+      become: true
+      ansible.builtin.template:
+        src: templates/pontocerto.service.j2
+        dest: /etc/systemd/system/pontocerto.service
+        mode: "0644"
+    - name: Ensure systemd service is running
+      become: true
+      ansible.builtin.systemd_service:
+        name: pontocerto
+        enabled: true
+        state: restarted

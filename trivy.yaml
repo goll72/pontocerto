@@ -1,0 +1,9 @@
+scan:
+  disable-telemetry: true
+  skip-version-check: true
+  skip-dirs:
+    - ansible/collections
+    - ansible/roles/nginxinc.nginx_config
+    - ansible/roles/zorun.nsd
+    - node_modules
+    - backend/node_modules

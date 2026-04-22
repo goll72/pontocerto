@@ -24,6 +24,8 @@
         location = / {
             return 301 /login/;
         }
+      http2:
+        enable: true
   tasks:
     - name: Install nginx
       ansible.builtin.package:
@@ -71,6 +73,7 @@
                       - port: 443
                         ssl: true
                       - port: 80
+                    etag: true
                   locations: *locations
                   ssl: *ssl
                   <<: *common

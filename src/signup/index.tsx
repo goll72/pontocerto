@@ -1,12 +1,12 @@
 import { render } from "solid-js/web";
 import "solid-devtools";
 
-import { createSignal, Show } from "solid-js";
 import type { Component } from "solid-js";
+import { createSignal, Show } from "solid-js";
 
 const root = document.getElementById("root");
 
-import { Form, Button, Card, OverlayTrigger, Tooltip } from "solid-bootstrap";
+import { Button, Card, Form, OverlayTrigger, Tooltip } from "solid-bootstrap";
 
 const SignupPage: Component = () => {
     const [authenticationType, setAuthenticationType] =

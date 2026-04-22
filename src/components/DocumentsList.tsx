@@ -1,5 +1,7 @@
-import { For, type Component } from "solid-js";
-import { Col, Container, Row, Button } from "solid-bootstrap";
+import type { Component } from "solid-js";
+import { For } from "solid-js";
+
+import { Button, Col, Container, Row } from "solid-bootstrap";
 
 import style from "./styles/DocumentsList.module.scss";
 
@@ -15,13 +17,12 @@ type File = {
     size: string;
 };
 
-
 const DUMMY_FILES = [
     { name: "relatrorio.pdf", size: "2.4 MB" },
     { name: "contrato.docx", size: "1.1 MB" },
     { name: "Planilha.xlsx", size: "3.0 MB" },
     { name: "ModeloJeans.png", size: "3.0 MB" },
-]
+];
 
 const Filecard: Component<{ file: File }> = (props) => {
     return (

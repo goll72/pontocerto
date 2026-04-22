@@ -1,0 +1,12 @@
+FROM docker.io/postgres:18-trixie
+LABEL org.opencontainers.image.authors="goll <goll@disroot.org>"
+
+USER postgres
+
+EXPOSE 5432/tcp
+
+ENV LANG=C.UTF-8
+ENV POSTGRES_DB=pontocerto
+ENV POSTGRES_PASSWORD=_this_is_a_dummy_password_
+
+COPY schema.sql /docker-entrypoint-initdb.d/schema.sql

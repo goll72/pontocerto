@@ -1,5 +1,7 @@
-import { For, Index, Show, type Component } from "solid-js";
-import { Button, Container, Accordion, Badge } from "solid-bootstrap";
+import type { Component } from "solid-js";
+import { For, Index, Show } from "solid-js";
+
+import { Accordion, Badge, Button, Container } from "solid-bootstrap";
 
 import style from "./styles/OrderList.module.scss";
 
@@ -54,8 +56,10 @@ const DUMMY_ORDERS: Order[] = [
 const OrderItem: Component<{ id: string; order: Order }> = (props) => {
     const dateFormatter = Intl.DateTimeFormat("pt-BR", { dateStyle: "short" });
 
-    let total = props.order.amountsPerSize.reduce((prev, curr) => prev + curr);
-    let totalFinished = props.order.amountsPerSizeFinished.reduce(
+    const total = props.order.amountsPerSize.reduce(
+        (prev, curr) => prev + curr,
+    );
+    const totalFinished = props.order.amountsPerSizeFinished.reduce(
         (prev, curr) => prev + curr,
     );
 

@@ -1,10 +1,10 @@
 import { render } from "solid-js/web";
 import "solid-devtools";
 
-import Sidebar from "components/Sidebar";
 import Content from "components/Content";
-import UserStatusPanel from "components/UserStatusPanel";
 import DeadlineStatusPanel from "components/DeadlineStatusPanel";
+import Sidebar from "components/Sidebar";
+import UserStatusPanel from "components/UserStatusPanel";
 
 const root = document.getElementById("root");
 

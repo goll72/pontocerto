@@ -1,9 +1,9 @@
 import { render } from "solid-js/web";
 import "solid-devtools";
 
-import Sidebar from "components/Sidebar";
 import Content from "components/Content";
 import DocumentsList from "components/DocumentsList";
+import Sidebar from "components/Sidebar";
 
 const root = document.getElementById("root");
 

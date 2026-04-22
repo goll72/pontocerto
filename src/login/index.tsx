@@ -1,12 +1,14 @@
 import { render } from "solid-js/web";
 import "solid-devtools";
 import type { Component } from "solid-js";
+
 import style from "/components/styles/Sidebar.module.scss";
 
 const root = document.getElementById("root");
-import Logo from "/assets/logo.svg?component-solid";
 
-import { Form, Button, Card } from "solid-bootstrap";
+import { Button, Card, Form } from "solid-bootstrap";
+
+import Logo from "/assets/logo.svg?component-solid";
 
 const LoginPage: Component = () => {
     return (
