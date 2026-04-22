@@ -1,10 +1,5 @@
-import { render } from "solid-js/web";
-import "solid-devtools";
-
 import type { Component } from "solid-js";
 import { createSignal, Show } from "solid-js";
-
-const root = document.getElementById("root");
 
 import { Button, Card, Form, OverlayTrigger, Tooltip } from "solid-bootstrap";
 
@@ -167,14 +162,12 @@ const SignupPage: Component = () => {
         </div>
     );
 };
-render(
-    () => (
-        <div
-            class="d-flex flex-md-row flex-column bg-primary overflow-y-scroll"
-            style="height: 100dvh;"
-        >
-            <SignupPage />
-        </div>
-    ),
-    root!,
+
+export default () => (
+    <div
+        class="d-flex flex-md-row flex-column bg-primary overflow-y-scroll"
+        style="height: 100dvh;"
+    >
+        <SignupPage />
+    </div>
 );

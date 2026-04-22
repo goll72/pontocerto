@@ -1,12 +1,8 @@
-import { render } from "solid-js/web";
-import "solid-devtools";
 import type { Component } from "solid-js";
 
-import style from "/components/styles/Sidebar.module.scss";
-
-const root = document.getElementById("root");
-
 import { Button, Card, Form } from "solid-bootstrap";
+
+import style from "/components/styles/Sidebar.module.scss";
 
 import Logo from "/assets/logo.svg?component-solid";
 
@@ -65,14 +61,12 @@ const LoginPage: Component = () => {
         </div>
     );
 };
-render(
-    () => (
-        <div
-            class="d-flex flex-md-row flex-columni bg-primary overflow-y-scroll"
-            style="height: 100dvh;"
-        >
-            <LoginPage />
-        </div>
-    ),
-    root!,
+
+export default () => (
+    <div
+        class="d-flex flex-md-row flex-columni bg-primary overflow-y-scroll"
+        style="height: 100dvh;"
+    >
+        <LoginPage />
+    </div>
 );

@@ -9,7 +9,7 @@ const page = (endpoint: string) =>
     `${import.meta.dirname}/src${endpoint}index.html`;
 
 export default {
-    appType: "mpa",
+    appType: "spa",
     css: {
         preprocessorOptions: {
             scss: {
@@ -33,17 +33,6 @@ export default {
         target: "esnext",
         outDir: "../dist",
         emptyOutDir: true,
-        rolldownOptions: {
-            input: {
-                home: page("/home/"),
-                orders: page("/orders/"),
-                finances: page("/finances/"),
-                documents: page("/documents/"),
-                suppliers: page("/suppliers/"),
-                login: page("/login/"),
-                signup: page("/signup/"),
-            },
-        },
     },
     publicDir: "assets/static",
     root: "src",

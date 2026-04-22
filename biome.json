@@ -20,6 +20,9 @@
                         "style": "separatedType"
                     }
                 }
+            },
+            "correctness": {
+                "noUnusedImports": "error"
             }
         }
     },
