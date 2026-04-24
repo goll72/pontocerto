@@ -1,5 +1,8 @@
 - name: Relational database setup using PostgreSQL
   hosts: system
+  vars:
+    psql_common: &common
+      login_unix_socket: /var/run/postgresql
   tasks:
     - name: Install ACL utilities (needed to use `become` with a user other than `root`)
       become: true
@@ -16,11 +19,58 @@
       ansible.builtin.package:
         name: python3-psycopg
         state: present
+    - name: Set up a password for user postgres
+      become: true
+      become_user: postgres
+      community.postgresql.postgresql_user:
+        <<: *common
+        name: postgres
+        password: "{{ lookup('ansible.builtin.env', 'DATABASE_PASSWORD', default=undef()) }}"
+    - name: Set up a user for DML
+      become: true
+      become_user: postgres
+      community.postgresql.postgresql_user:
+        <<: *common
+        name: pontocerto
     - name: Set up a PostgreSQL database
       become: true
       become_user: postgres
       community.postgresql.postgresql_db:
-        login_user: postgres
-        login_unix_socket: /var/run/postgresql
+        <<: *common
         name: pontocerto
         encoding: UTF-8
+    - name: Set up permissions for DML on the database
+      become: true
+      become_user: postgres
+      community.postgresql.postgresql_privs:
+        <<: *common
+        login_db: pontocerto
+        roles: pontocerto
+        objs: ALL_IN_SCHEMA
+        privs: SELECT,INSERT,UPDATE,DELETE
+    - name: Check if there are any outstanding migrations
+      delegate_to: localhost
+      ansible.builtin.stat:
+        path: ../../backend/db/migration.sql
+      register: db_migration
+    - name: Show outstanding migrations
+      ansible.builtin.debug:
+        msg: "{{ lookup('ansible.builtin.file', '../../backend/db/migration.sql') }}"
+      when: db_migration.stat.exists
+    - name: Prompt user before running outstanding migrations
+      ansible.builtin.pause:
+        prompt: "Check if you actually want to run the migration, then press Ctrl+C"
+      when: db_migration.stat.exists
+    - name: Run outstanding migrations
+      become: true
+      become_user: postgres
+      community.postgresql.postgresql_query:
+        <<: *common
+        query: "{{ lookup('ansible.builtin.file', '../../backend/db/migration.sql') }}"
+      when: db_migration.stat.exists
+    - name: Remove outstanding migrations file
+      delegate_to: localhost
+      ansible.builtin.file:
+        path: ../../backend/db/migration.sql
+        state: absent
+      when: db_migration.stat.exists

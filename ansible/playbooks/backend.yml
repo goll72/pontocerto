@@ -12,13 +12,15 @@
         name: npm
         state: present
     - name: Create a user to run the backend server
+      become: true
       ansible.builtin.user:
         name: pontocerto
         password: '!'
-        home: /nonexistent
-        create_home: false
+        home: /home/pontocerto
+        create_home: true
         shell: /usr/sbin/nologin
     - name: Create directory to keep server files
+      become: true
       ansible.builtin.file:
         path: "{{ backend_dir }}"
         state: directory
@@ -29,15 +31,19 @@
       become: true
       become_user: pontocerto
       ansible.posix.synchronize:
-        src: backend/
+        src: ../../backend/
         dest: "{{ backend_dir }}/"
         archive: true
         owner: false
         group: false
+        rsync_opts:
+          - "--exclude=node_modules"
+          - "--exclude=db"
+          - "--exclude=scripts"
     - name: Create systemd service to run backend server
       become: true
       ansible.builtin.template:
-        src: templates/pontocerto.service.j2
+        src: ../templates/pontocerto.service.j2
         dest: /etc/systemd/system/pontocerto.service
         mode: "0644"
     - name: Ensure systemd service is running

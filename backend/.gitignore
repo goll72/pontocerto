@@ -1,1 +1,2 @@
-/drizzle/
+/db/*.sql
+!/db/schema.sql

@@ -89,7 +89,9 @@
             pkgs.nodejs_22
 
             # Deploy e configuração do servidor
+            pkgs.dotenvx
             pkgs.ansible
+            pkgs.rsync
 
             # Containers para teste local
             pkgs.podman

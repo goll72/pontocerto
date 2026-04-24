@@ -14,7 +14,7 @@ RUN useradd -d /nonexistent -M -s /usr/sbin/nologin pontocerto
 
 WORKDIR /app
 
-COPY --exclude=node_modules . .
+COPY --exclude=node_modules --exclude=db --exclude=scripts . .
 RUN chown -R pontocerto .
 
 USER pontocerto

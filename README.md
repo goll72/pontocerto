@@ -24,7 +24,7 @@ Caso você tenha acabado de instalar o `nix` ou ainda não use flakes,
 será necessário habilitar o suporte a flakes:
 
 ```sh
-echo "experimental-features = nix-command flakes" >> ${XDG_CONFIG_HOME:-"$HOME/.config"}/nix/nix.conf
+echo "experimental-features = nix-command flakes" >> "${XDG_CONFIG_HOME:-"$HOME/.config"}/nix/nix.conf"
 ```
 
 Ao editar o código, certifique-se de que as seguintes

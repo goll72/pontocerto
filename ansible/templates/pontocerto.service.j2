@@ -7,7 +7,7 @@ Type=exec
 User=pontocerto
 WorkingDirectory={{ backend_dir }}
 
-ExecStart=npm ci
+ExecStartPre=npm ci
 ExecStart=node --import=tsx src/main.ts
 
 NoNewPrivileges=yes
@@ -23,3 +23,6 @@ ProtectKernelTunables=yes
 LockPersonality=yes
 SystemCallArchitectures=native
 SystemCallFilter=@system-service
+
+[Install]
+WantedBy=default.target
