@@ -79,7 +79,7 @@ Ao alterar o esquema da base de dados, rode o seguinte comando para
 que o banco seja recriado na próxima execução do _container_:
 
 ```sh
-podman image rm pontocerto-db
+podman compose down --volumes
 ```
 
 ## Compilação e _deploy_
